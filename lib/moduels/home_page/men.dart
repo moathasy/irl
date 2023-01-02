@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:irl_graduation_project/moduels/home_page/salons/eight_salon.dart';
-import 'package:irl_graduation_project/moduels/home_page/salons/first_salon.dart';
-import 'package:irl_graduation_project/moduels/home_page/salons/five_salon.dart';
-import 'package:irl_graduation_project/moduels/home_page/salons/fourth_salon.dart';
-import 'package:irl_graduation_project/moduels/home_page/salons/nine_salon.dart';
-import 'package:irl_graduation_project/moduels/home_page/salons/second_salon.dart';
-import 'package:irl_graduation_project/moduels/home_page/salons/seven_salon.dart';
-import 'package:irl_graduation_project/moduels/home_page/salons/six_salon.dart';
-import 'package:irl_graduation_project/moduels/home_page/salons/ten_salon.dart';
-import 'package:irl_graduation_project/moduels/home_page/salons/third_salon.dart';
+import 'package:irl_graduation_project/moduels/home_page/men_salons/eight_salon.dart';
+import 'package:irl_graduation_project/moduels/home_page/men_salons/first_salon.dart';
+import 'package:irl_graduation_project/moduels/home_page/men_salons/five_salon.dart';
+import 'package:irl_graduation_project/moduels/home_page/men_salons/fourth_salon.dart';
+import 'package:irl_graduation_project/moduels/home_page/men_salons/nine_salon.dart';
+import 'package:irl_graduation_project/moduels/home_page/men_salons/second_salon.dart';
+import 'package:irl_graduation_project/moduels/home_page/men_salons/seven_salon.dart';
+import 'package:irl_graduation_project/moduels/home_page/men_salons/six_salon.dart';
+import 'package:irl_graduation_project/moduels/home_page/men_salons/ten_salon.dart';
+import 'package:irl_graduation_project/moduels/home_page/men_salons/third_salon.dart';
 
 class Men extends StatelessWidget {
 

@@ -1,4 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:irl_graduation_project/moduels/home_page/clinics/clinics_eight.dart';
+import 'package:irl_graduation_project/moduels/home_page/clinics/clinics_five.dart';
+import 'package:irl_graduation_project/moduels/home_page/clinics/clinics_four.dart';
+import 'package:irl_graduation_project/moduels/home_page/clinics/clinics_nine.dart';
+import 'package:irl_graduation_project/moduels/home_page/clinics/clinics_one.dart';
+import 'package:irl_graduation_project/moduels/home_page/clinics/clinics_seven.dart';
+import 'package:irl_graduation_project/moduels/home_page/clinics/clinics_six.dart';
+import 'package:irl_graduation_project/moduels/home_page/clinics/clinics_ten.dart';
+import 'package:irl_graduation_project/moduels/home_page/clinics/clinics_three.dart';
+import 'package:irl_graduation_project/moduels/home_page/clinics/clinics_two.dart';
 
 class ClinicsAll extends StatelessWidget {
 
@@ -72,7 +82,9 @@ class ClinicsAll extends StatelessWidget {
                         fontWeight: FontWeight.w500,fontSize: 15),
                   ),
                   trailing: IconButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ClinicsOne()));
+                    },
                     icon: const Icon(
                       Icons.play_arrow,
                       size: 40,
@@ -99,7 +111,9 @@ class ClinicsAll extends StatelessWidget {
                   style: ListTileStyle.drawer,
                   subtitle: const Text('Find beauty with us ...',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 15),),
                   trailing: IconButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ClinicsTwo()));
+                    },
                     icon: const Icon(
                       Icons.play_arrow,
                       size: 40,
@@ -127,7 +141,9 @@ class ClinicsAll extends StatelessWidget {
                   style: ListTileStyle.drawer,
                   subtitle: const Text('Find beauty with us ...',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 15),),
                   trailing: IconButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ClinicsThree()));
+                    },
                     icon: const Icon(
                       Icons.play_arrow,
                       size: 40,
@@ -155,7 +171,9 @@ class ClinicsAll extends StatelessWidget {
                   style: ListTileStyle.drawer,
                   subtitle: const Text('Find beauty with us ...',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 15),),
                   trailing: IconButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ClinicFour()));
+                    },
                     icon: const Icon(
                       Icons.play_arrow,
                       size: 40,
@@ -183,7 +201,9 @@ class ClinicsAll extends StatelessWidget {
                   style: ListTileStyle.drawer,
                   subtitle: const Text('Find beauty with us ...',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 15),),
                   trailing: IconButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ClinicsFive()));
+                    },
                     icon: const Icon(
                       Icons.play_arrow,
                       size: 40,
@@ -211,7 +231,9 @@ class ClinicsAll extends StatelessWidget {
                   style: ListTileStyle.drawer,
                   subtitle: const Text('Find beauty with us ...',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 15),),
                   trailing: IconButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ClinicsSix()));
+                    },
                     icon: const Icon(
                       Icons.play_arrow,
                       size: 40,
@@ -241,7 +263,9 @@ class ClinicsAll extends StatelessWidget {
                   style: ListTileStyle.drawer,
                   subtitle: const Text('Find beauty with us ...',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 15),),
                   trailing: IconButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ClinicsSeven()));
+                    },
                     icon: const Icon(
                       Icons.play_arrow,
                       size: 40,
@@ -271,7 +295,9 @@ class ClinicsAll extends StatelessWidget {
                   style: ListTileStyle.drawer,
                   subtitle: const Text('Find beauty with us ...',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 15),),
                   trailing: IconButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ClinicsEight()));
+                    },
                     icon: const Icon(
                       Icons.play_arrow,
                       size: 40,
@@ -301,7 +327,9 @@ class ClinicsAll extends StatelessWidget {
                   style: ListTileStyle.drawer,
                   subtitle: const Text('Find beauty with us ...',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 15),),
                   trailing: IconButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ClinicsNine()));
+                    },
                     icon: const Icon(
                       Icons.play_arrow,
                       size: 40,
@@ -331,37 +359,9 @@ class ClinicsAll extends StatelessWidget {
                   style: ListTileStyle.drawer,
                   subtitle: const Text('Find beauty with us ...',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 15),),
                   trailing: IconButton(
-                    onPressed: (){},
-                    icon: const Icon(
-                      Icons.play_arrow,
-                      size: 40,
-                    ),
-                  )
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              ListTile(
-                  contentPadding: EdgeInsets.all(14),
-                  shape: RoundedRectangleBorder(
-                    side: const BorderSide(color: Colors.brown, width: 4),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  iconColor: Colors.brown.shade400,
-                  leading: CircleAvatar(
-                    backgroundImage: NetworkImage(
-                        'https://images.squarespace-cdn.com/content/v1/56d635cd7da24fcf83f147fc/1458009666704-W7GABE2HZ6SWGCWVLTNL/YSC_Logo2.jpg'),
-                    radius: 30,),
-                  title: const Text(
-                      'BE YOU CLINIC',
-                      style: TextStyle(
-                          fontFamily: "Lora",
-                          fontSize: 18),
-                      overflow: TextOverflow.visible),
-                  style: ListTileStyle.drawer,
-                  subtitle: const Text('Find beauty with us ...',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 15),),
-                  trailing: IconButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ClinicsTen()));
+                    },
                     icon: const Icon(
                       Icons.play_arrow,
                       size: 40,
