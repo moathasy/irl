@@ -1,65 +1,55 @@
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
-Widget itemBuilder(
-    IconData icon,String label
-    ) => Expanded(
-      child:
-         InkWell(
-           onTap: (){},
-           child: Column(
-            children: [
-              Container(
-                height: 70,
-                child: Row(
-                  children: [
-                    Icon(icon),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      label,
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ],
-                ),
+Widget itemBuilder(IconData icon, String label) => Expanded(
+      child: InkWell(
+        onTap: () {},
+        child: Column(
+          children: [
+            SizedBox(
+              height: 70,
+              child: Row(
+                children: [
+                  Icon(icon),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    label,
+                    style: const TextStyle(fontSize: 20),
+                  ),
+                ],
               ),
-            ],
+            ),
+          ],
         ),
-         ),
-        );
-        // separatorBuilder: (context, index) => Container(
-        //   height: 1.0,
-        //   width: double.infinity,
-        //   color: Colors.grey,
-        // ),
-        // itemCount: ,
-
+      ),
+    );
+// separatorBuilder: (context, index) => Container(
+//   height: 1.0,
+//   width: double.infinity,
+//   color: Colors.grey,
+// ),
+// itemCount: ,
 
 Widget defaultButton({
   double width = double.infinity,
   Color background = Colors.white,
   required String text,
-  double radious = 0.0,
+  double radius = 0.0,
   required Function function,
 }) =>
     Container(
       width: width,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(radius),
+        color: background,
+      ),
       child: MaterialButton(
-        onPressed: () {
-          return function();
-        },
+        onPressed: function(),
         child: Text(
           text,
-          style: TextStyle(color: Colors.black),
+          style: const TextStyle(color: Colors.black),
         ),
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(radious),
-        color: background,
       ),
     );
 
@@ -73,7 +63,7 @@ Widget defaultFormField({
   required IconData prefix,
   IconData? suffix,
   Function? onTap,
-  bool isPassword=false,
+  bool isPassword = false,
   Function? suffixPressed,
   // required Function onTap,
 }) =>
@@ -91,19 +81,15 @@ Widget defaultFormField({
       // onTap: onTap!(),
       decoration: InputDecoration(
         labelText: label,
-        prefixIcon: Icon(
-            prefix
-        ),
-        suffixIcon: suffix != null ? IconButton(
-          onPressed:() => suffixPressed!(),
-          icon: Icon(
-              suffix
-          ),
-        ) : null,
-        border: OutlineInputBorder(),
-
+        prefixIcon: Icon(prefix),
+        suffixIcon: suffix != null
+            ? IconButton(
+                onPressed: () => suffixPressed!(),
+                icon: Icon(suffix),
+              )
+            : null,
+        border: const OutlineInputBorder(),
       ),
-
 
       // onTap: (){
       //   onTap();
@@ -112,7 +98,4 @@ Widget defaultFormField({
       //     labelText: 'Email Address',
       //     border: OutlineInputBorder(),
       //     prefixIcon: Icon(Icons.email)),
-
     );
-
-

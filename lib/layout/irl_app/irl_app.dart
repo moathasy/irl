@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:irl_graduation_project/moduels/home_page/home_screen.dart';
 
-import '../../moduels/account_page/account_screen.dart';
-import '../../moduels/search_page/search_screen.dart';
+import '../account_page/account_screen.dart';
+import '../home_page/home_screen.dart';
+import '../search_page/search_screen.dart';
 
 class IrlAppScreen extends StatefulWidget {
+  const IrlAppScreen({super.key});
 
   @override
   State<IrlAppScreen> createState() => _IrlAppScreenState();
@@ -13,35 +14,40 @@ class IrlAppScreen extends StatefulWidget {
 class _IrlAppScreenState extends State<IrlAppScreen> {
   int currentIndex = 0;
 
-  List<Widget> screens=[
+  List<Widget> screens = [
     HomeScreen(),
-    SearchScreen(),
+    const SearchScreen(),
     AccountScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-      ),
+      appBar: AppBar(),
       body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         type: BottomNavigationBarType.fixed,
-        onTap: (index){
+        onTap: (index) {
           setState(() {
-            currentIndex=index;
+            currentIndex = index;
           });
         },
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home',),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search',),
-          BottomNavigationBarItem(icon: Icon(Icons.account_box), label: 'Account',),
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_box),
+            label: 'Account',
+          ),
         ],
-
       ),
-
     );
   }
-
 }

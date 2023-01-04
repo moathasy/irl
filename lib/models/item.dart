@@ -1,4 +1,4 @@
-class UserModel{
+class UserModel {
   final int id;
   final String name;
   final String price;
@@ -7,6 +7,5 @@ class UserModel{
     required this.id,
     required this.name,
     required this.price,
-
   });
 }
