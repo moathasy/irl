@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:irl/layout/irl_login/login_page.dart';
 
+import '../../provider/users_data.dart';
 import '../account_page/account_screen.dart';
 import '../home_page/home_screen.dart';
 import '../search_page/search_screen.dart';
@@ -12,19 +14,21 @@ class IrlAppScreen extends StatefulWidget {
 }
 
 class _IrlAppScreenState extends State<IrlAppScreen> {
+  final userAuth = UsersData.authData;
   int currentIndex = 0;
-
-  List<Widget> screens = [
-    HomeScreen(),
-    const SearchScreen(),
-    AccountScreen(),
-  ];
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> screens = [
+      const HomeScreen(),
+      const SearchScreen(),
+      userAuth.currentUser != null
+          ? const AccountScreen()
+          : const LoginScreen(),
+    ];
+
     return Scaffold(
-      appBar: AppBar(),
-      body: screens[currentIndex],
+      body: SafeArea(child: screens[currentIndex]),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         type: BottomNavigationBarType.fixed,
