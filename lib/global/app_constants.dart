@@ -11,6 +11,7 @@ abstract class AppConstants {
       elevation: 14.0,
       backgroundColor: Colors.brown.shade100,
     ),
+    primaryColor: Colors.brown,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: Colors.brown.shade100,
       selectedItemColor: Colors.white,
