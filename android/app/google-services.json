@@ -7,20 +7,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:567612632016:android:2adf80af3d848c382667d5",
+        "mobilesdk_app_id": "1:567612632016:android:fdb8a6704dda9a4d2667d5",
         "android_client_info": {
-          "package_name": "com.example.irl_graduation_project"
+          "package_name": "com.graduation.project.irl"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "567612632016-ms5881n70ra64p7rfi7i660pucknr2pb.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.irl_graduation_project",
-            "certificate_hash": "64d8ee098dd5fac89429a23ac5e80b10c241f940"
-          }
-        },
         {
           "client_id": "567612632016-l28rkld4lopidhs3ln1tflad2cvhev0b.apps.googleusercontent.com",
           "client_type": 3
@@ -37,6 +29,13 @@
             {
               "client_id": "567612632016-l28rkld4lopidhs3ln1tflad2cvhev0b.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "567612632016-bqvedr7vnu2822o7h0rk9jesgac6qnit.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.irlGraduationProject"
+              }
             }
           ]
         }

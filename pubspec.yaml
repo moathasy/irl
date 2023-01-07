@@ -1,4 +1,4 @@
-name: irl_graduation_project
+name: irl
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -44,6 +44,8 @@ dependencies:
   cloud_firestore: ^4.3.0
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+  fluttertoast: ^8.1.2
+  provider: ^6.0.5
 
 
 
@@ -72,6 +74,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/gif/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -1,4 +1,4 @@
-# irl_graduation_project
+# irl
 
 A new Flutter project.
 
