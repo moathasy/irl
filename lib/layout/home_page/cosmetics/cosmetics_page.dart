@@ -1,11 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:irl/layout/home_page/cosmetics/product_screen.dart';
+import 'package:provider/provider.dart';
+
+import '../../../models/product.dart';
+import '../../../provider/products_provider.dart';
 
 class Cosmetics extends StatefulWidget {
+  const Cosmetics({super.key});
+
   @override
   State<Cosmetics> createState() => _CosmeticsState();
 }
 
 class _CosmeticsState extends State<Cosmetics> {
+  List<Product> allProductList = [];
+
+  @override
+  void initState() {
+    allProductList =
+        Provider.of<ProductData>(context, listen: false).getAllProductList;
+    if (allProductList.isEmpty) {
+      fetchData();
+    }
+    super.initState();
+  }
+
+  void fetchData() async {
+    await Provider.of<ProductData>(context, listen: false)
+        .fetchFarmasiShop()
+        .then(
+          (value) => allProductList =
+              Provider.of<ProductData>(context, listen: false)
+                  .getAllProductList,
+        );
+    setState(() {});
+  }
+
+  List<Product> getProductsList(int shopId) {
+    List<Product> shopProducts = [];
+    shopProducts =
+        allProductList.where((element) => element.shop == shopId).toList();
+    return shopProducts;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +86,14 @@ class _CosmeticsState extends State<Cosmetics> {
                 style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => ProductsScreen(
+                      shop: 'FARMASI SHOP',
+                      productList: getProductsList(1),
+                    ),
+                  ),
+                ),
                 icon: const Icon(
                   Icons.play_arrow,
                   size: 40,
@@ -82,7 +126,14 @@ class _CosmeticsState extends State<Cosmetics> {
                 style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => ProductsScreen(
+                      shop: 'FARMASI SHOP',
+                      productList: getProductsList(2),
+                    ),
+                  ),
+                ),
                 icon: const Icon(
                   Icons.play_arrow,
                   size: 40,
@@ -115,7 +166,14 @@ class _CosmeticsState extends State<Cosmetics> {
                 style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => ProductsScreen(
+                      shop: 'FARMASI SHOP',
+                      productList: getProductsList(3),
+                    ),
+                  ),
+                ),
                 icon: const Icon(
                   Icons.play_arrow,
                   size: 40,

@@ -4,6 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:irl/provider/cart_provider.dart';
+import 'package:irl/provider/products_provider.dart';
 import 'package:irl/provider/users_data.dart';
 import 'package:provider/provider.dart';
 
@@ -31,6 +33,8 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => UsersData()),
+        ChangeNotifierProvider(create: (_) => ProductData()),
+        ChangeNotifierProvider(create: (_) => CartProvider()),
       ],
       child: MyApp(
         isSkipped: isSkipped,

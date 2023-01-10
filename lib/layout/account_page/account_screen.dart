@@ -28,7 +28,7 @@ class _AccountScreenState extends State<AccountScreen> {
   void fetchData() async {
     userData =
         await Provider.of<UsersData>(context, listen: false).fetchUserData();
-
+    if (!mounted) return;
     setState(() {});
   }
 

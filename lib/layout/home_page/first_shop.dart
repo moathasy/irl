@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class FirstShop extends StatefulWidget {
+  const FirstShop({super.key});
+
   @override
   State<FirstShop> createState() => _FirstShopState();
 }
