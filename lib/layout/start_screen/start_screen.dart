@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:irl/global/app_constants.dart';
-import 'package:irl/layout/irl_login/login_page.dart';
+import 'package:irl/layout/irl_app/irl_app.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen({super.key});
@@ -54,7 +54,7 @@ class StartScreen extends StatelessWidget {
           Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(
-              builder: (context) => const LoginScreen(),
+              builder: (context) => const IrlAppScreen(),
             ),
             (route) => false,
           );

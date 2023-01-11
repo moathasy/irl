@@ -25,13 +25,17 @@ class _IrlAppScreenState extends State<IrlAppScreen> {
     super.initState();
   }
 
-  void fetchData() async {
-    await Provider.of<UsersData>(context, listen: false).fetchUserData();
-    if (!mounted) return;
-    await Provider.of<ProductData>(context, listen: false).fetchFarmasiShop();
-    if (!mounted) return;
-    setState(() {});
-  }
+  void fetchData() async =>
+      await Provider.of<UsersData>(context, listen: false).fetchUserData().then(
+            (_) async => await Provider.of<ProductData>(context, listen: false)
+                .fetchFarmasiShop()
+                .then(
+              (_) {
+                if (!mounted) return;
+                setState(() {});
+              },
+            ),
+          );
 
   @override
   Widget build(BuildContext context) {
