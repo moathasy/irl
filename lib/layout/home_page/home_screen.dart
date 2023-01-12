@@ -3,7 +3,7 @@ import 'package:irl/widgets/home_screen_card.dart';
 
 import 'clinics/clinics_all.dart';
 import 'cosmetics/cosmetics_page.dart';
-import 'men_women.dart';
+import 'women_salons.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,7 +12,16 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 20,
+        elevation: 1,
+        centerTitle: true,
+        title: const Text(
+          "IRL",
+          style: TextStyle(
+            color: Colors.brown,
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: ConstrainedBox(
         constraints:
@@ -45,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                 onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Cosmetics(),
+                    builder: (context) => const Cosmetics(),
                   ),
                 ),
                 title: 'Cosmetics',

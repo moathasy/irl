@@ -65,7 +65,7 @@ class _WomenSalonsState extends State<WomenSalons> {
   Widget build(BuildContext context) {
     List<Salon> womenSalons = [
       Salon(
-        id: "1",
+        id: "21",
         name: 'ROZA BEAUTY SALON',
         description: 'Find beauty with us ...',
         imageUrl:
@@ -95,7 +95,7 @@ class _WomenSalonsState extends State<WomenSalons> {
         ],
       ),
       Salon(
-        id: "2",
+        id: "22",
         name: 'R&T SALON',
         description: 'Find beauty with us ...',
         imageUrl:
@@ -125,7 +125,7 @@ class _WomenSalonsState extends State<WomenSalons> {
         ],
       ),
       Salon(
-        id: "3",
+        id: "23",
         name: 'HAIR SALON',
         description: 'Find beauty with us ...',
         imageUrl:
@@ -155,7 +155,7 @@ class _WomenSalonsState extends State<WomenSalons> {
         ],
       ),
       Salon(
-        id: "4",
+        id: "24",
         name: 'HAIR BY LELANI',
         description: 'Find beauty with us ...',
         imageUrl:
@@ -185,7 +185,7 @@ class _WomenSalonsState extends State<WomenSalons> {
         ],
       ),
       Salon(
-        id: "5",
+        id: "25",
         name: 'BEAUTY CENTER',
         description: 'Find beauty with us ...',
         imageUrl:
@@ -215,7 +215,7 @@ class _WomenSalonsState extends State<WomenSalons> {
         ],
       ),
       Salon(
-        id: "6",
+        id: "26",
         name: 'BEAUTY HAIR',
         description: 'Find beauty with us ...',
         imageUrl:
@@ -245,7 +245,7 @@ class _WomenSalonsState extends State<WomenSalons> {
         ],
       ),
       Salon(
-        id: "7",
+        id: "27",
         name: 'SUNA SALON',
         description: 'Find beauty with us ...',
         imageUrl:
@@ -275,7 +275,7 @@ class _WomenSalonsState extends State<WomenSalons> {
         ],
       ),
       Salon(
-        id: "8",
+        id: "28",
         name: 'LOOKS AND STYLES',
         description: 'Find beauty with us ...',
         imageUrl:
@@ -305,7 +305,7 @@ class _WomenSalonsState extends State<WomenSalons> {
         ],
       ),
       Salon(
-        id: "9",
+        id: "29",
         name: 'YOUR LOOKS',
         description: 'Find beauty with us ...',
         imageUrl:
@@ -335,7 +335,7 @@ class _WomenSalonsState extends State<WomenSalons> {
         ],
       ),
       Salon(
-        id: "10",
+        id: "30",
         name: 'VA MAKEUP',
         description: 'Find beauty with us ...',
         imageUrl:

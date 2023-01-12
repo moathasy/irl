@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../models/salon_model.dart';
-import '../../../salons_details/salons_details_screen.dart';
+import '../../../../../models/salon_model.dart';
+import '../../salons_details/salons_details_screen.dart';
 
 class WomenSalonWidget extends StatelessWidget {
   final Salon salon;

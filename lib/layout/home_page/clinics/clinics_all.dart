@@ -60,7 +60,7 @@ class _ClinicsAllState extends State<ClinicsAll> {
   Widget build(BuildContext context) {
     List<Salon> clinic = [
       Salon(
-        id: "1",
+        id: "31",
         name: 'ROZ\'S BEAUTY CLINIC',
         description: 'Find beauty with us ...',
         imageUrl:
@@ -90,7 +90,7 @@ class _ClinicsAllState extends State<ClinicsAll> {
         ],
       ),
       Salon(
-        id: "2",
+        id: "32",
         name: 'WELLWOMEN CLINIC',
         description: 'Find beauty with us ...',
         imageUrl:
@@ -120,7 +120,7 @@ class _ClinicsAllState extends State<ClinicsAll> {
         ],
       ),
       Salon(
-        id: "3",
+        id: "33",
         name: 'SMILES CLINIC',
         description: 'Find beauty with us ...',
         imageUrl:
@@ -150,7 +150,7 @@ class _ClinicsAllState extends State<ClinicsAll> {
         ],
       ),
       Salon(
-        id: "4",
+        id: "34",
         name: 'SKIN LASER POINT',
         description: 'Find beauty with us ...',
         imageUrl:
@@ -180,7 +180,7 @@ class _ClinicsAllState extends State<ClinicsAll> {
         ],
       ),
       Salon(
-        id: "5",
+        id: "35",
         name: 'BAEUTY CLINIC',
         description: 'Find beauty with us ...',
         imageUrl:
@@ -210,7 +210,7 @@ class _ClinicsAllState extends State<ClinicsAll> {
         ],
       ),
       Salon(
-        id: "6",
+        id: "36",
         name: 'FLAWLESS YOU',
         description: 'Find beauty with us ...',
         imageUrl:
@@ -240,7 +240,7 @@ class _ClinicsAllState extends State<ClinicsAll> {
         ],
       ),
       Salon(
-        id: "7",
+        id: "37",
         name: 'DENTAL CLINIC',
         description: 'Find beauty with us ...',
         imageUrl:
@@ -270,7 +270,7 @@ class _ClinicsAllState extends State<ClinicsAll> {
         ],
       ),
       Salon(
-        id: "8",
+        id: "38",
         name: 'PURE CARE CLINIC',
         description: 'Find beauty with us ...',
         imageUrl:
@@ -300,7 +300,7 @@ class _ClinicsAllState extends State<ClinicsAll> {
         ],
       ),
       Salon(
-        id: "9",
+        id: "39",
         name: 'DIVA CLINIC',
         description: 'Find beauty with us ...',
         imageUrl:
@@ -330,7 +330,7 @@ class _ClinicsAllState extends State<ClinicsAll> {
         ],
       ),
       Salon(
-        id: "10",
+        id: "40",
         name: 'CARE CLINIC',
         description: 'Find beauty with us ...',
         imageUrl:

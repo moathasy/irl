@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:irl/layout/home_page/salons_category/men_salons/widgets/men_salon_widget.dart';
 import 'package:irl/models/salon_model.dart';
-import 'package:uuid/uuid.dart';
 
 class Men extends StatefulWidget {
   const Men({super.key});
@@ -11,8 +10,6 @@ class Men extends StatefulWidget {
 }
 
 class _MenState extends State<Men> {
-  var uuid = const Uuid();
-
   final List<SalonTask> salonsTasks = [
     SalonTask(
       taskId: "1",
@@ -350,6 +347,7 @@ class _MenState extends State<Men> {
         ],
       ),
     ];
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 13),
