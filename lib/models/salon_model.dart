@@ -4,7 +4,7 @@ class Salon {
   final String description;
   final String imageUrl;
   final List<Map<String, dynamic>>? photosList;
-  final List<SalonTask> salonTask;
+  List<SalonTask> salonTask;
 
   Salon({
     required this.id,
@@ -28,4 +28,26 @@ class SalonTask {
     required this.taskDuration,
     required this.taskPrice,
   });
+
+  factory SalonTask.fromJson(Map<String, dynamic> json) => SalonTask(
+        taskId: json["taskId"],
+        taskName: json["taskName"],
+        taskDuration: json["taskDuration"],
+        taskPrice: json["taskPrice"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "taskId": taskId,
+        "taskName": taskName,
+        "taskDuration": taskDuration,
+        "taskPrice": taskPrice,
+      };
+
+  @override
+  String toString() => {
+        "taskId": taskId,
+        "taskName": taskName,
+        "taskDuration": taskDuration,
+        "taskPrice": taskPrice,
+      }.toString();
 }
