@@ -3,7 +3,12 @@ import 'package:irl/models/salon_model.dart';
 
 class SalonDetailsWidget extends StatefulWidget {
   final SalonTask salonTask;
-  const SalonDetailsWidget({super.key, required this.salonTask});
+  final void Function(SalonTask task) getTask;
+  const SalonDetailsWidget({
+    super.key,
+    required this.salonTask,
+    required this.getTask,
+  });
 
   @override
   State<SalonDetailsWidget> createState() => _SalonDetailsWidgetState();
@@ -11,6 +16,7 @@ class SalonDetailsWidget extends StatefulWidget {
 
 class _SalonDetailsWidgetState extends State<SalonDetailsWidget> {
   SalonTask? salonTask;
+  late void Function(SalonTask task) getTask = widget.getTask;
   @override
   void initState() {
     salonTask = widget.salonTask;
@@ -32,6 +38,7 @@ class _SalonDetailsWidgetState extends State<SalonDetailsWidget> {
           onChanged: (value) {
             setState(() {
               selected = value ?? false;
+              if (selected) getTask(salonTask!);
             });
           },
         ),

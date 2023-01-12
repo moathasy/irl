@@ -1,6 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:irl/layout/home_page/salons_category/salons_details/widgets/salon_details_widget.dart';
 import 'package:irl/models/salon_model.dart';
+
+import '../../../schedule/schedule_screen.dart';
 
 class SalonsDetailsScreen extends StatefulWidget {
   final Salon salon;
@@ -12,6 +17,7 @@ class SalonsDetailsScreen extends StatefulWidget {
 
 class _SalonsDetailsScreenState extends State<SalonsDetailsScreen> {
   Salon? salon;
+  List<SalonTask> tasksList = [];
   List<Map<String, dynamic>>? _photos;
 
   @override
@@ -19,6 +25,11 @@ class _SalonsDetailsScreenState extends State<SalonsDetailsScreen> {
     salon = widget.salon;
     _photos = salon!.photosList;
     super.initState();
+  }
+
+  void getList(SalonTask task) {
+    tasksList.add(task);
+    log("this task add ${task.taskName}");
   }
 
   Map<String, dynamic>? _selectedPhoto;
@@ -94,6 +105,7 @@ class _SalonsDetailsScreenState extends State<SalonsDetailsScreen> {
               itemCount: salon!.salonTask.length,
               itemBuilder: (context, index) => SalonDetailsWidget(
                 salonTask: salon!.salonTask[index],
+                getTask: getList,
               ),
             ),
           ),
@@ -104,7 +116,20 @@ class _SalonsDetailsScreenState extends State<SalonsDetailsScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if (tasksList.isNotEmpty) {
+                      salon!.salonTask = tasksList;
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => ScheduleScreen(
+                            salon: salon!,
+                          ),
+                        ),
+                      );
+                    } else {
+                      Fluttertoast.showToast(msg: "please select task");
+                    }
+                  },
                   style: ElevatedButton.styleFrom(
                       side: const BorderSide(width: 2, color: Colors.black),
                       backgroundColor: Colors.brown,
