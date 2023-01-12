@@ -1,8 +1,10 @@
 import 'dart:developer';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:irl/layout/home_page/salons_category/salons_details/widgets/salon_details_widget.dart';
+import 'package:irl/layout/irl_login/login_page.dart';
 import 'package:irl/models/salon_model.dart';
 
 import '../../../schedule/schedule_screen.dart';
@@ -19,6 +21,7 @@ class _SalonsDetailsScreenState extends State<SalonsDetailsScreen> {
   Salon? salon;
   List<SalonTask> tasksList = [];
   List<Map<String, dynamic>>? _photos;
+  User? uAccount = FirebaseAuth.instance.currentUser;
 
   @override
   void initState() {
@@ -115,31 +118,49 @@ class _SalonsDetailsScreenState extends State<SalonsDetailsScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(
-                  onPressed: () {
-                    if (tasksList.isNotEmpty) {
-                      salon!.salonTask = tasksList;
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (_) => ScheduleScreen(
-                            salon: salon!,
+                if (uAccount != null)
+                  ElevatedButton(
+                    onPressed: () {
+                      if (tasksList.isNotEmpty) {
+                        salon!.salonTask = tasksList;
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => ScheduleScreen(
+                              salon: salon!,
+                            ),
                           ),
-                        ),
-                      );
-                    } else {
-                      Fluttertoast.showToast(msg: "please select task");
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                      side: const BorderSide(width: 2, color: Colors.black),
-                      backgroundColor: Colors.brown,
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 10, horizontal: 30)),
-                  child: const Text(
-                    'Book Now',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+                        );
+                      } else {
+                        Fluttertoast.showToast(msg: "please select task");
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                        side: const BorderSide(width: 2, color: Colors.black),
+                        backgroundColor: Colors.brown,
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 30)),
+                    child: const Text(
+                      'Book Now',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
                   ),
-                ),
+                if (uAccount == null)
+                  ElevatedButton(
+                    onPressed: () => Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                          builder: (_) => const LoginScreen(),
+                        ),
+                        (route) => false),
+                    style: ElevatedButton.styleFrom(
+                        side: const BorderSide(width: 2, color: Colors.black),
+                        backgroundColor: Colors.brown,
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 30)),
+                    child: const Text(
+                      'LogIn First',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                  ),
               ],
             ),
           ),

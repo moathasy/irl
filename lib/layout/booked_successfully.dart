@@ -51,13 +51,16 @@ class BookedSuccessfully extends StatelessWidget {
               height: 20,
             ),
             ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.brown)),
-                onPressed: () => Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (_) => const IrlAppScreen()),
-                    (route) => false),
-                child: const Text("Move To Home"))
+              style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.brown)),
+              onPressed: () => Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (_) => const IrlAppScreen()),
+                  (route) => false),
+              child: const Text(
+                "Move To Home",
+              ),
+            ),
           ],
         ),
       ),
