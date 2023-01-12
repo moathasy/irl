@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:irl/provider/cart_provider.dart';
 import 'package:irl/provider/products_provider.dart';
 import 'package:irl/provider/users_data.dart';
@@ -19,12 +20,13 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
+  await initializeDateFormatting();
   //? to initiate cache data box
   await Hive.initFlutter();
 
   //? cached data String is key to the box if you want to get and data
   var box = await Hive.openBox(AppConstants.cachedData);
+  var box2 = await Hive.openBox<List<DateTimeRange>>("test1");
 
   bool? isSkipped = box.get(AppConstants.isSkipped);
 
