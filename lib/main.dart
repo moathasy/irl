@@ -14,6 +14,7 @@ import 'firebase_options.dart';
 import 'global/app_constants.dart';
 import 'layout/irl_app/irl_app.dart';
 import 'layout/start_screen/start_screen.dart';
+import 'provider/my_booking_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,6 +38,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => UsersData()),
         ChangeNotifierProvider(create: (_) => ProductData()),
         ChangeNotifierProvider(create: (_) => CartProvider()),
+        ChangeNotifierProvider(create: (_) => BookingProvider()),
       ],
       child: MyApp(
         isSkipped: isSkipped,

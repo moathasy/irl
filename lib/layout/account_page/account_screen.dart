@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:irl/layout/my_booking/my_booking_screen.dart';
 import 'package:irl/models/user.dart';
 import 'package:irl/provider/users_data.dart';
 import 'package:provider/provider.dart';
@@ -18,16 +19,17 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   void initState() {
     userData = Provider.of<UsersData>(context, listen: false).getAccount;
+
     if (userData == Account.empty()) {
       fetchData();
     }
-
     super.initState();
   }
 
   void fetchData() async {
     userData =
         await Provider.of<UsersData>(context, listen: false).fetchUserData();
+
     if (!mounted) return;
     setState(() {});
   }
@@ -96,7 +98,12 @@ class _AccountScreenState extends State<AccountScreen> {
           const SizedBox(
             height: 30,
           ),
-          itemBuilder(icon: Icons.list_alt, label: 'Your Orders', onTap: () {}),
+          itemBuilder(icon: Icons.list_alt, label: 'My Orders', onTap: () {}),
+          itemBuilder(
+              icon: Icons.list_alt,
+              label: 'My Bookings',
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => const MyBookingScreen()))),
           itemBuilder(icon: Icons.local_offer, label: 'Offers', onTap: () {}),
           itemBuilder(
               icon: Icons.notification_important,

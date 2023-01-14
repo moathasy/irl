@@ -102,7 +102,10 @@ class _ScheduleScreenAppState extends State<ScheduleScreen> {
         .collection('bookings')
         .add(newBooking.toJson())
         .then(
-          (value) async => await bookedServices.doc(userAccount.id).set(
+          (value) async => await bookedServices
+              .doc(userAccount.id)
+              .collection("MyBookings")
+              .add(
                 booked.toJson(),
               ),
         )

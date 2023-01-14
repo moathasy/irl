@@ -4,7 +4,6 @@ class Cart {
   final String? productName;
   final String? price;
   int? quantity;
-
   final String? image;
 
   Cart({

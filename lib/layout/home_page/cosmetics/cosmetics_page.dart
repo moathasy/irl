@@ -129,7 +129,7 @@ class _CosmeticsState extends State<Cosmetics> {
                 onPressed: () => Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (_) => ProductsScreen(
-                      shop: 'FARMASI SHOP',
+                      shop: 'BLOOM BEAUTY',
                       productList: getProductsList(2),
                     ),
                   ),
@@ -169,7 +169,7 @@ class _CosmeticsState extends State<Cosmetics> {
                 onPressed: () => Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (_) => ProductsScreen(
-                      shop: 'FARMASI SHOP',
+                      shop: 'MAJIC MAKEUP',
                       productList: getProductsList(3),
                     ),
                   ),
