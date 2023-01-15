@@ -1,10 +1,18 @@
+import 'dart:developer';
+
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:irl/models/cart.dart';
 import 'package:irl/models/product.dart';
+import 'package:uuid/uuid.dart';
+
+import '../models/order.dart';
 
 class CartProvider with ChangeNotifier {
-  final List<Cart> _cart = [];
+  var uuid = const Uuid();
+
+  List<Cart> _cart = [];
+  final List<Order> _orders = [];
 
   // add to cart
   void addProductToCart({
@@ -53,8 +61,28 @@ class CartProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  //* dirty code
+  void onSubmitOrder(String storeName) {
+    double total = 0;
+    for (var i in _cart) {
+      total += double.parse(i.price!);
+    }
+    final order = Order(
+      id: uuid.v1(),
+      storeName: storeName,
+      cart: _cart,
+      total: total,
+    );
+    log(order.toString());
+    _orders.add(order);
+
+    _cart = [];
+    notifyListeners();
+  }
+
   void clearList() => _cart.clear();
 
   List<Cart> get getCartList => _cart;
+  List<Order> get getOrderList => _orders;
   int get getCounter => _cart.length;
 }

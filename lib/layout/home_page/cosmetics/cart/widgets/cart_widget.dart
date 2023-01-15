@@ -9,13 +9,15 @@ class CartWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10),
-      child: ListTile(
-        leading: CircleAvatar(
-          child: Image.network(cart.image!),
+      child: Card(
+        child: ListTile(
+          leading: CircleAvatar(
+            child: Image.network(cart.image!),
+          ),
+          title: Text(cart.productName!),
+          subtitle: Text("${cart.price!} JD"),
+          trailing: Text(cart.quantity!.toString()),
         ),
-        title: Text(cart.productName!),
-        subtitle: Text("${cart.price!} JD"),
-        trailing: Text(cart.quantity!.toString()),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:irl/layout/orders/cosmatics_order.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../models/cart.dart';
@@ -6,17 +7,20 @@ import '../../../../provider/cart_provider.dart';
 import 'widgets/cart_widget.dart';
 
 class CartScreen extends StatefulWidget {
-  const CartScreen({super.key});
+  final String storeName;
+  const CartScreen({super.key, required this.storeName});
 
   @override
   State<CartScreen> createState() => _CartScreenState();
 }
 
 class _CartScreenState extends State<CartScreen> {
+  late String storeName;
   List<Cart> cart = [];
 
   @override
   void initState() {
+    storeName = widget.storeName;
     fetchData();
     super.initState();
   }
@@ -76,7 +80,16 @@ class _CartScreenState extends State<CartScreen> {
                     backgroundColor: MaterialStateProperty.all<Color>(
                   Colors.brown,
                 )),
-                onPressed: () {},
+                onPressed: () {
+                  Provider.of<CartProvider>(context, listen: false)
+                      .onSubmitOrder(storeName);
+
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => const MyCosmeticsOrder(),
+                    ),
+                  );
+                },
                 child: const Text(
                   "Submit Order",
                 ),

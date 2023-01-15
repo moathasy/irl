@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:irl/layout/my_booking/my_booking_screen.dart';
+import 'package:irl/layout/orders/cosmatics_order.dart';
 import 'package:irl/models/user.dart';
 import 'package:irl/provider/users_data.dart';
 import 'package:provider/provider.dart';
@@ -98,7 +99,11 @@ class _AccountScreenState extends State<AccountScreen> {
           const SizedBox(
             height: 30,
           ),
-          itemBuilder(icon: Icons.list_alt, label: 'My Orders', onTap: () {}),
+          itemBuilder(
+              icon: Icons.list_alt,
+              label: 'My Orders',
+              onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const MyCosmeticsOrder()))),
           itemBuilder(
               icon: Icons.list_alt,
               label: 'My Bookings',

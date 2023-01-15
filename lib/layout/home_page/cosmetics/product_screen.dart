@@ -52,9 +52,13 @@ class _ProductsScreenState extends State<ProductsScreen> {
             child: IconButton(
               onPressed: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const CartScreen()));
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CartScreen(
+                      storeName: title,
+                    ),
+                  ),
+                );
               },
               icon: const Icon(Icons.shopping_cart),
             ),
