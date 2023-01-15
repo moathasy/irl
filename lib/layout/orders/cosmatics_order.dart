@@ -4,6 +4,7 @@ import 'package:irl/provider/cart_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/order.dart';
+import '../irl_app/irl_app.dart';
 
 class MyCosmeticsOrder extends StatefulWidget {
   const MyCosmeticsOrder({super.key});
@@ -25,6 +26,15 @@ class _MyCosmeticsOrderState extends State<MyCosmeticsOrder> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(
+                builder: (_) => const IrlAppScreen(),
+              ),
+              (route) => false),
+        ),
         elevation: 13.0,
         // this need to be set
         backgroundColor: Colors.transparent,

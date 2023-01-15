@@ -21,7 +21,7 @@ class _CartScreenState extends State<CartScreen> {
   @override
   void initState() {
     storeName = widget.storeName;
-    fetchData();
+
     super.initState();
   }
 
@@ -32,6 +32,7 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
+    fetchData();
     return Scaffold(
       appBar: AppBar(
         elevation: 13.0,
@@ -84,11 +85,11 @@ class _CartScreenState extends State<CartScreen> {
                   Provider.of<CartProvider>(context, listen: false)
                       .onSubmitOrder(storeName);
 
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => const MyCosmeticsOrder(),
-                    ),
-                  );
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(
+                        builder: (_) => const MyCosmeticsOrder(),
+                      ),
+                      (route) => false);
                 },
                 child: const Text(
                   "Submit Order",
