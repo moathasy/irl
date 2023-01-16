@@ -17,17 +17,32 @@ class CartScreen extends StatefulWidget {
 class _CartScreenState extends State<CartScreen> {
   late String storeName;
   List<Cart> cart = [];
+  double total = 0;
 
   @override
   void initState() {
     storeName = widget.storeName;
-
     super.initState();
   }
 
   void fetchData() async {
     final cartProvider = Provider.of<CartProvider>(context, listen: false);
     cart = cartProvider.getCartList;
+    getTotal();
+  }
+
+  void updateCart(bool increase, String id) {
+    final cartProvider = Provider.of<CartProvider>(context, listen: false);
+    cartProvider.changeQuantityCart(increase: increase, id: id);
+    setState(() {
+      cart = cartProvider.getCartList;
+    });
+    getTotal();
+  }
+
+  void getTotal() {
+    final cartProvider = Provider.of<CartProvider>(context, listen: false);
+    total = cartProvider.getTotal();
   }
 
   @override
@@ -68,35 +83,55 @@ class _CartScreenState extends State<CartScreen> {
           itemCount: cart.length,
           itemBuilder: (context, index) => CartWidget(
             cart: cart[index],
+            changeQuantity: updateCart,
           ),
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          children: [
-            Expanded(
-              child: ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                  Colors.brown,
-                )),
-                onPressed: () {
-                  Provider.of<CartProvider>(context, listen: false)
-                      .onSubmitOrder(storeName);
-
-                  Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(
-                        builder: (_) => const MyCosmeticsOrder(),
-                      ),
-                      (route) => false);
-                },
-                child: const Text(
-                  "Submit Order",
+      bottomNavigationBar: SizedBox(
+        height: 100,
+        child: Card(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text("total"),
+                    Text(
+                      total.toString(),
+                    ),
+                  ],
                 ),
-              ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                          Colors.brown,
+                        )),
+                        onPressed: () {
+                          Provider.of<CartProvider>(context, listen: false)
+                              .onSubmitOrder(storeName);
+
+                          Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                builder: (_) => const MyCosmeticsOrder(),
+                              ),
+                              (route) => false);
+                        },
+                        child: const Text(
+                          "Submit Order",
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

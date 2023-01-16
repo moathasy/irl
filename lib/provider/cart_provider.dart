@@ -55,10 +55,23 @@ class CartProvider with ChangeNotifier {
       cartItem.quantity = cartItem.quantity! + 1;
       Fluttertoast.showToast(msg: "product quantity increased");
     } else {
-      cartItem.quantity = cartItem.quantity! - 1;
+      if (cartItem.quantity == 1) {
+        _cart.remove(cartItem);
+      } else {
+        cartItem.quantity = cartItem.quantity! - 1;
+      }
+
       Fluttertoast.showToast(msg: "product quantity decreased");
     }
     notifyListeners();
+  }
+
+  double getTotal() {
+    double total = 0;
+    for (var i in _cart) {
+      total += double.parse(i.price!) * i.quantity!;
+    }
+    return total;
   }
 
   //* dirty code
