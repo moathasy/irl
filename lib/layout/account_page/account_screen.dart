@@ -90,10 +90,6 @@ class _AccountScreenState extends State<AccountScreen> {
               const SizedBox(
                 width: 170,
               ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.edit_outlined),
-              )
             ],
           ),
           const SizedBox(
