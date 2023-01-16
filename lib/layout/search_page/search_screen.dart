@@ -1,165 +1,124 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:irl/models/product.dart';
+import 'package:irl/provider/products_provider.dart';
+import 'package:provider/provider.dart';
 
-class SearchScreen extends StatelessWidget {
+import '../../provider/cart_provider.dart';
+import '../home_page/cosmetics/cart/cart_screen.dart';
+
+class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
 
-  void _showModal(BuildContext context) {
-    Navigator.of(context).push(FullScreenSearchModal());
+  @override
+  State<SearchScreen> createState() => _SearchScreenState();
+}
+
+class _SearchScreenState extends State<SearchScreen> {
+  List<Product> searchProduct = [];
+  final searchController = TextEditingController();
+
+  @override
+  void dispose() {
+    searchController.dispose();
+    super.dispose();
   }
+
+  void searchedList(String text) => setState(() {
+        searchProduct = Provider.of<ProductData>(context, listen: false)
+            .searchInProducts(text);
+      });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'IRL.com',
-          style: TextStyle(
-            color: Colors.brown,
-            fontSize: 40,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        actions: [
-          // this button is used to open the search modal
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () => _showModal(context),
-          )
-        ],
-      ),
-      body: Container(),
-    );
-  }
-}
-
-class FullScreenSearchModal extends ModalRoute {
-  @override
-  Duration get transitionDuration => const Duration(milliseconds: 500);
-
-  @override
-  bool get opaque => false;
-
-  @override
-  bool get barrierDismissible => false;
-
-  @override
-  Color get barrierColor => Colors.black.withOpacity(0.6);
-
-  @override
-  String? get barrierLabel => null;
-
-  @override
-  bool get maintainState => true;
-
-  @override
-  Widget buildPage(
-    BuildContext context,
-    Animation<double> animation,
-    Animation<double> secondaryAnimation,
-  ) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: TextField(
-                      autofocus: true,
-                      decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 0, horizontal: 20),
-                        filled: true,
-                        fillColor: Colors.grey.shade300,
-                        suffixIcon: const Icon(Icons.close),
-                        hintText: 'Search',
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
-                          borderRadius: BorderRadius.circular(30),
-                        ),
+        elevation: 0,
+        title: TextField(
+          controller: searchController,
+          decoration: InputDecoration(
+            label: const Text(
+              "Search",
+            ),
+            prefixIcon: const Icon(
+              Icons.search,
+            ),
+            suffixIcon: Badge(
+              badgeContent: Consumer<CartProvider>(
+                builder: (context, value, child) {
+                  return Text(
+                    value.getCounter.toString(),
+                    style: const TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  );
+                },
+              ),
+              position: const BadgePosition(start: 30, bottom: 30),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CartScreen(
+                        storeName: 'BLOOM BEAUTY',
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  // This button is used to close the search modal
-                  TextButton(
-                    onPressed: () => Navigator.of(context).pop(),
-                    child: const Text('Cancel'),
-                  )
-                ],
+                  );
+                },
+                icon: const Icon(Icons.shopping_cart),
               ),
-
-              // display other things like search history, suggestions, search results, etc.
-              const SizedBox(
-                height: 20,
-              ),
-              const Padding(
-                padding: EdgeInsets.only(left: 5),
-                child: Text(
-                  'Recently Searched',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ),
-              const ListTile(
-                title: Text("Men Salons"),
-                leading: Icon(Icons.search),
-                trailing: Icon(Icons.close),
-              ),
-              const ListTile(
-                title: Text('Nails'),
-                leading: Icon(Icons.search),
-                trailing: Icon(Icons.close),
-              ),
-              const ListTile(
-                title: Text('Toxin'),
-                leading: Icon(Icons.search),
-                trailing: Icon(Icons.close),
-              ),
-              const ListTile(
-                title: Text('Skin Care'),
-                leading: Icon(Icons.search),
-                trailing: Icon(Icons.close),
-              ),
-              const ListTile(
-                title: Text('Hair cut'),
-                leading: Icon(Icons.search),
-                trailing: Icon(Icons.close),
-              )
-            ],
+            ),
           ),
+          onChanged: (val) {
+            searchedList(val);
+          },
         ),
       ),
-    );
-  }
-
-  // animations for the search modal
-  @override
-  Widget buildTransitions(
-    BuildContext context,
-    Animation<double> animation,
-    Animation<double> secondaryAnimation,
-    Widget child,
-  ) {
-    // add fade animation
-    return FadeTransition(
-      opacity: animation,
-      // add slide animation
-      child: SlideTransition(
-        position: Tween<Offset>(
-          begin: const Offset(0, -1),
-          end: Offset.zero,
-        ).animate(animation),
-        child: child,
+      body: ListView.builder(
+        itemCount: searchProduct.length,
+        itemBuilder: (ctx, index) => ProductWidget(
+          product: searchProduct[index],
+        ),
       ),
     );
   }
 }
 
-// This is the main screen of the application
+class ProductWidget extends StatelessWidget {
+  final Product product;
+  const ProductWidget({super.key, required this.product});
+
+  @override
+  Widget build(BuildContext context) {
+    final cartProvider = Provider.of<CartProvider>(context, listen: false);
+
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ListTile(
+        leading: ClipRRect(
+          borderRadius: BorderRadius.circular(50),
+          child: CircleAvatar(
+            radius: 30,
+            backgroundColor: Colors.transparent,
+            child: Image.network(
+              product.imageUrl!,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        title: Text(product.title!),
+        subtitle: Text("${product.price!} JD"),
+        trailing: IconButton(
+          onPressed: () => cartProvider.addProductToCart(product: product),
+          icon: Container(
+            width: 50,
+            color: Colors.black12,
+            child: const Icon(
+              Icons.shopping_cart,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

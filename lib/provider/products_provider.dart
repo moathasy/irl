@@ -24,5 +24,12 @@ class ProductData with ChangeNotifier {
     notifyListeners();
   }
 
+  List<Product> searchInProducts(String searchText) =>
+      _allProducts.where((element) {
+        String pName = element.title!.toLowerCase();
+        String search = searchText.toLowerCase();
+        return pName.contains(search);
+      }).toList();
+
   List<Product> get getAllProductList => _allProducts;
 }
