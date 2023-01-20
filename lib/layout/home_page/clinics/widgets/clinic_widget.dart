@@ -29,9 +29,9 @@ class ClinicWidget extends StatelessWidget {
           overflow: TextOverflow.visible,
         ),
         style: ListTileStyle.drawer,
-        subtitle: const Text(
-          'Find beauty with us ...',
-          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
+        subtitle:  Text(
+          salon.description,
+          style: const  TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
         ),
         trailing: IconButton(
           onPressed: () {

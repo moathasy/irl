@@ -11,7 +11,7 @@ class StartScreen extends StatelessWidget {
 
   Future<void> cache() async {
     var cachedData = await Hive.openBox(AppConstants.cachedData);
-    cachedData.put(AppConstants.isSkipped, true);
+    cachedData.put(AppConstants.isSkipped, false);
     log("cached Data successfully");
   }
 

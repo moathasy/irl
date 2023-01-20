@@ -17,10 +17,12 @@ class ProductData with ChangeNotifier {
         for (var i in data) {
           _allProducts.add(Product.fromJson(i.data(), i.id));
         }
+
       }
     } catch (error) {
       log("fetch Farmasi Shop data error $error");
     }
+    // _allProducts.removeWhere((element) => element.id =="48WeTMmktShnWnG7434t");
     notifyListeners();
   }
 

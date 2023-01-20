@@ -103,9 +103,7 @@ class _SignUpPageState extends State<SignUpPage> {
           height: double.infinity,
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: NetworkImage(
-                'https://t4.ftcdn.net/jpg/02/06/94/21/360_F_206942118_LewuOI1QEbsp9NBI8f4ECCf3Lff0He1S.jpg',
-              ),
+              image: AssetImage('assets/images/login1.jpg'),
               fit: BoxFit.cover,
               repeat: ImageRepeat.noRepeat,
             ),

@@ -61,6 +61,106 @@ class _WomenSalonsState extends State<WomenSalons> {
       taskPrice: '15 JD',
     ),
   ];
+  final List<SalonTask> salonsTasks2 = [
+    SalonTask(
+      taskId: "1",
+      taskName: 'Subtle layers',
+      taskDuration: '30 min',
+      taskPrice: '25 JD',
+    ),
+    SalonTask(
+      taskId: "2",
+      taskName: 'Straight cut',
+      taskDuration: '20 min',
+      taskPrice: '18 JD',
+    ),
+    SalonTask(
+      taskId: "3",
+      taskName: 'Hydro Jelly Mask',
+      taskDuration: '15 min',
+      taskPrice: '12 JD',
+    ),
+    SalonTask(
+      taskId: "4",
+      taskName: 'Italian Bob',
+      taskDuration: '25 min',
+      taskPrice: '20 JD',
+    ),
+    SalonTask(
+      taskId: "5",
+      taskName: 'Mega Lash Extensions',
+      taskDuration: '20 min',
+      taskPrice: '20 JD',
+    ),
+    SalonTask(
+      taskId: "6",
+      taskName: 'Full highlights',
+      taskDuration: '20 min',
+      taskPrice: '25 JD',
+    ),
+    SalonTask(
+      taskId: "7",
+      taskName: 'Partial highlights',
+      taskDuration: '15 min',
+      taskPrice: '15 JD',
+    ),
+    SalonTask(
+      taskId: "8",
+      taskName: 'Additional colors',
+      taskDuration: '25 min',
+      taskPrice: '20 JD',
+    ),
+  ];
+  final List<SalonTask> salonsTasks3 = [
+    SalonTask(
+      taskId: "1",
+      taskName: 'Root Tap or Smudge',
+      taskDuration: '25 min',
+      taskPrice: '16 JD',
+    ),
+    SalonTask(
+      taskId: "2",
+      taskName: 'Gel Manicure',
+      taskDuration: '20 min',
+      taskPrice: '18 JD',
+    ),
+    SalonTask(
+      taskId: "3",
+      taskName: 'French Manicure',
+      taskDuration: '15 min',
+      taskPrice: '10 JD',
+    ),
+    SalonTask(
+      taskId: "4",
+      taskName: 'Italian Bob',
+      taskDuration: '20 min',
+      taskPrice: '30 JD',
+    ),
+    SalonTask(
+      taskId: "5",
+      taskName: 'Straight Haircut',
+      taskDuration: '20 min',
+      taskPrice: '20 JD',
+    ),
+    SalonTask(
+      taskId: "6",
+      taskName: 'Curly Haircut',
+      taskDuration: '25 min',
+      taskPrice: '22 JD',
+    ),
+    SalonTask(
+      taskId: "7",
+      taskName: 'Full makeup',
+      taskDuration: '30 min',
+      taskPrice: '35 JD',
+    ),
+    SalonTask(
+      taskId: "8",
+      taskName: 'Additional colors',
+      taskDuration: '20 min',
+      taskPrice: '15 JD',
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     List<Salon> womenSalons = [
@@ -100,7 +200,7 @@ class _WomenSalonsState extends State<WomenSalons> {
         description: 'Find beauty with us ...',
         imageUrl:
             'https://static.vecteezy.com/system/resources/thumbnails/002/459/341/small/hair-woman-and-face-logo-and-symbols-free-vector.jpg',
-        salonTask: salonsTasks,
+        salonTask: salonsTasks3,
         photosList: [
           {
             "url":
@@ -130,7 +230,7 @@ class _WomenSalonsState extends State<WomenSalons> {
         description: 'Find beauty with us ...',
         imageUrl:
             'https://t4.ftcdn.net/jpg/03/63/90/29/360_F_363902960_P51Ursw5bJPCnFNEFj4n7bHmCXz6STbh.jpg',
-        salonTask: salonsTasks,
+        salonTask: salonsTasks2,
         photosList: [
           {
             "url":
@@ -160,7 +260,7 @@ class _WomenSalonsState extends State<WomenSalons> {
         description: 'Find beauty with us ...',
         imageUrl:
             'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/hair-logo-design-template-3f1ab60dd265abc9e7eaab9352f5c5c9_screen.jpg?ts=1602124776',
-        salonTask: salonsTasks,
+        salonTask: salonsTasks3,
         photosList: [
           {
             "url":
@@ -220,7 +320,7 @@ class _WomenSalonsState extends State<WomenSalons> {
         description: 'Find beauty with us ...',
         imageUrl:
             'https://img.freepik.com/premium-vector/beauty-hair-care-logo-design_7518-113.jpg?w=2000',
-        salonTask: salonsTasks,
+        salonTask: salonsTasks2,
         photosList: [
           {
             "url":
@@ -250,7 +350,7 @@ class _WomenSalonsState extends State<WomenSalons> {
         description: 'Find beauty with us ...',
         imageUrl:
             'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/gold-salon-logo-design-template-f97a5f6a58afa5eb34712265bd8ccac0_screen.jpg?ts=1646827491',
-        salonTask: salonsTasks,
+        salonTask: salonsTasks3,
         photosList: [
           {
             "url":
@@ -310,7 +410,7 @@ class _WomenSalonsState extends State<WomenSalons> {
         description: 'Find beauty with us ...',
         imageUrl:
             'https://www.seekpng.com/png/detail/425-4259667_gents-salon-logo-png-download-beauty-parlour-icon.png',
-        salonTask: salonsTasks,
+        salonTask: salonsTasks2,
         photosList: [
           {
             "url":

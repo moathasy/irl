@@ -3,7 +3,7 @@ import 'package:irl/widgets/home_screen_card.dart';
 
 import 'clinics/clinics_all.dart';
 import 'cosmetics/cosmetics_page.dart';
-import 'women_salons.dart';
+import 'men_women.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -18,7 +18,8 @@ class HomeScreen extends StatelessWidget {
           "IRL",
           style: TextStyle(
             color: Colors.brown,
-            fontSize: 28,
+            fontFamily: 'Lora',
+            fontSize: 35,
             fontWeight: FontWeight.bold,
           ),
         ),

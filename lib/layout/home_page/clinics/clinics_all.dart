@@ -55,6 +55,77 @@ class _ClinicsAllState extends State<ClinicsAll> {
       taskPrice: '15 JD',
     ),
   ];
+  final List<SalonTask> salonsTask1 = [
+    SalonTask(
+      taskId: "1",
+      taskName: 'Tooth Extractions ',
+      taskDuration: '30 min',
+      taskPrice: '25 JD',
+    ),
+    SalonTask(
+      taskId: "2",
+      taskName: 'Bridgework',
+      taskDuration: '25 min',
+      taskPrice: '30 JD',
+    ),
+    SalonTask(
+      taskId: "3",
+      taskName: 'Cosmetic Fillings',
+      taskDuration: '20 min',
+      taskPrice: '15 JD',
+    ),
+    SalonTask(
+      taskId: "4",
+      taskName: 'Invisalign',
+      taskDuration: '20 min',
+      taskPrice: '20 JD',
+    ),
+    SalonTask(
+      taskId: "5",
+      taskName: 'Teeth Whitening',
+      taskDuration: '30 min',
+      taskPrice: '50 JD',
+    ),
+    SalonTask(
+      taskId: "6",
+      taskName: 'Dentures',
+      taskDuration: '20 min',
+      taskPrice: '25 JD',
+    ),
+    SalonTask(
+      taskId: "7",
+      taskName: 'Teeth Cleanings',
+      taskDuration: '25 min',
+      taskPrice: '40 JD',
+    ),
+  ];
+  final List<SalonTask> salonsTask2 = [
+    SalonTask(
+      taskId: "1",
+      taskName: 'Bespoke Skin Fix Glow Package ',
+      taskDuration: '30 min',
+     taskPrice: '25 JD',
+    ),
+    SalonTask(
+      taskId: "2",
+      taskName: 'beard laser',
+      taskDuration: '25 min',
+      taskPrice: '30 JD',
+    ),
+    SalonTask(
+      taskId: "3",
+      taskName: 'Total body',
+      taskDuration: '30 min',
+      taskPrice: '60 JD',
+    ),
+    SalonTask(
+      taskId: "4",
+      taskName: 'Underarm',
+      taskDuration: '20 min',
+      taskPrice: '35 JD',
+    ),
+
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +136,7 @@ class _ClinicsAllState extends State<ClinicsAll> {
         description: 'Find beauty with us ...',
         imageUrl:
             'https://thumbs.dreamstime.com/z/beauty-clinic-logo-spa-treatment-aesthetic-represent-shiny-good-shape-luxury-188443622.jpg',
-        salonTask: salonsTasks,
+        salonTask: salonsTask1,
         photosList: [
           {
             "url":
@@ -92,7 +163,7 @@ class _ClinicsAllState extends State<ClinicsAll> {
       Salon(
         id: "32",
         name: 'WELLWOMEN CLINIC',
-        description: 'Find beauty with us ...',
+        description: 'Adding Care to your beauty',
         imageUrl:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRssBBDIBlvVy8A3cRuM0MyIYHMPmB2ZY5umLmIBUf0TmCzQjsCTOPpzbW9bRrssJk1iJM&usqp=CAU',
         salonTask: salonsTasks,
@@ -122,7 +193,7 @@ class _ClinicsAllState extends State<ClinicsAll> {
       Salon(
         id: "33",
         name: 'SMILES CLINIC',
-        description: 'Find beauty with us ...',
+        description: 'Lets you look Better ...',
         imageUrl:
             'https://i.pinimg.com/236x/e2/89/4c/e2894c1e02f85d723ee350bce697eda1.jpg',
         salonTask: salonsTasks,
@@ -152,7 +223,7 @@ class _ClinicsAllState extends State<ClinicsAll> {
       Salon(
         id: "34",
         name: 'SKIN LASER POINT',
-        description: 'Find beauty with us ...',
+        description: 'Refreshing your beauty senses',
         imageUrl:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJFIJl4JrO0UQQ39CglRZ8FD0yQkMvpgqC_n7mF949WG2X277VMUBRBX_wKMpLSqTht6M&usqp=CAU',
         salonTask: salonsTasks,
@@ -182,7 +253,7 @@ class _ClinicsAllState extends State<ClinicsAll> {
       Salon(
         id: "35",
         name: 'BAEUTY CLINIC',
-        description: 'Find beauty with us ...',
+        description: 'A place to look better ...',
         imageUrl:
             'https://cdn3.vectorstock.com/i/1000x1000/88/62/olive-beauty-clinic-logo-design-vector-25898862.jpg',
         salonTask: salonsTasks,
@@ -212,7 +283,7 @@ class _ClinicsAllState extends State<ClinicsAll> {
       Salon(
         id: "36",
         name: 'FLAWLESS YOU',
-        description: 'Find beauty with us ...',
+        description: 'Own way of new beauty ...',
         imageUrl:
             'https://dcassetcdn.com/design_img/2270129/609639/609639_11942323_2270129_ac586107_image.png',
         salonTask: salonsTasks,
@@ -242,67 +313,67 @@ class _ClinicsAllState extends State<ClinicsAll> {
       Salon(
         id: "37",
         name: 'DENTAL CLINIC',
-        description: 'Find beauty with us ...',
+        description: 'Because your smile is our passion',
         imageUrl:
             'https://img.freepik.com/premium-vector/dental-logo-design-creative-dentist-logo-creative-dental-clinic-logo-dental-vector_227744-831.jpg?w=2000',
-        salonTask: salonsTasks,
+        salonTask: salonsTask1,
         photosList: [
           {
             "url":
-                "https://images.everydayhealth.com/images/what-is-a-hydrafacial-722x406.jpg",
-            "caption": "Hydrafacial",
+                "https://chambleedental.com/wp-content/uploads/dental-veneers-2012.jpg",
+            "caption": "Dental Veneers",
           },
           {
             "url":
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9HgMARLh1WgVOcJ_gUL3gOaB-MzQKgmjnLw&usqp=CAU",
-            "caption": " Lash extensions"
+                "https://s21063.pcdn.co/wp-content/uploads/sites/297/2016/07/Dental-Cleaning-Consultation.jpg.optimal.jpg",
+            "caption": "Teeth Cleanings"
           },
           {
             "url":
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk6n703-W3fGhFhofeuzrRwn2gEe4x6DGBTQ&usqp=CAU",
-            "caption": "Microneedling"
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9NGFjKuQuzFyfr22krVAU4y8lzcS4ONZTTw&usqp=CAU",
+            "caption": "Dentures"
           },
           {
             "url":
-                "https://cdn1.dermoi.com/wordpress/wp-content/uploads/2021/09/11130302/dermaplaning-5.jpg",
-            "caption": "Dermaplaning"
+                "https://www.sarasotadentistry.com/wp-content/uploads/2019/05/laser-teeth-whitening-in-dental-clinic.jpg",
+            "caption": "Teeth Whitening"
           },
         ],
       ),
       Salon(
         id: "38",
         name: 'PURE CARE CLINIC',
-        description: 'Find beauty with us ...',
+        description: 'Crafting your dream of beauty',
         imageUrl:
             'http://img0cf.b8cdn.com/images/logo/18/2096618_logo_1638949833_n.png',
-        salonTask: salonsTasks,
+        salonTask: salonsTask2,
         photosList: [
           {
             "url":
-                "https://images.everydayhealth.com/images/what-is-a-hydrafacial-722x406.jpg",
-            "caption": "Hydrafacial",
+                "https://uploads-ssl.webflow.com/603945b40961acc75f6b2767/60c49c976bf400ad81951b50_the-laser-clinic-group-uxbridge-2270106.jpg",
+            "caption": "Total body",
           },
           {
             "url":
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9HgMARLh1WgVOcJ_gUL3gOaB-MzQKgmjnLw&usqp=CAU",
-            "caption": " Lash extensions"
+                "https://cdn04.storat.com/listings/discounts-on-laser-hair-removal-sessions-for-men-with-drkayle-dubai-1-in-umm-suqeim-5c5ff15a977b6_original.jpeg",
+            "caption": "Beard laser"
           },
           {
             "url":
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk6n703-W3fGhFhofeuzrRwn2gEe4x6DGBTQ&usqp=CAU",
-            "caption": "Microneedling"
+            "caption": "Face laser"
           },
           {
             "url":
-                "https://cdn1.dermoi.com/wordpress/wp-content/uploads/2021/09/11130302/dermaplaning-5.jpg",
-            "caption": "Dermaplaning"
+                "https://the-riotact.com/wp-content/uploads/2019/07/The-best-laser-clinics-in-Canberra.png",
+            "caption": "Full body"
           },
         ],
       ),
       Salon(
         id: "39",
         name: 'DIVA CLINIC',
-        description: 'Find beauty with us ...',
+        description: 'Brush to more beautiful ...',
         imageUrl:
             'https://www.shutterstock.com/image-vector/women-health-logo-template-design-260nw-1157911546.jpg',
         salonTask: salonsTasks,
@@ -332,7 +403,7 @@ class _ClinicsAllState extends State<ClinicsAll> {
       Salon(
         id: "40",
         name: 'CARE CLINIC',
-        description: 'Find beauty with us ...',
+        description: 'We will style you better ...',
         imageUrl:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGUdg4pF2ceoN6KUAclwAtrwklFxthMC7A1zeX9sRvcwxz2HRNj5FJmXQcwGH1KEECXps&usqp=CAU',
         salonTask: salonsTasks,

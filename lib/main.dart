@@ -29,9 +29,9 @@ void main() async {
   var box = await Hive.openBox(AppConstants.cachedData);
   var box2 = await Hive.openBox<List<DateTimeRange>>("test1");
 
-  bool? isSkipped = box.get(AppConstants.isSkipped);
-
-  log("isSkipped ========> $isSkipped ");
+  // bool? isSkipped = box.get(AppConstants.isSkipped);
+  //
+  // log("isSkipped ========> $isSkipped ");
   runApp(
     MultiProvider(
       providers: [
@@ -41,7 +41,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => BookingProvider()),
       ],
       child: MyApp(
-        isSkipped: isSkipped,
+        // isSkipped: isSkipped,
       ),
     ),
   );

@@ -48,10 +48,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 width: 50,
                 child: CircleAvatar(
                   backgroundColor: Colors.brown.shade500,
-                  child: const Text(
-                    'M',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
+                  child: const Icon(Icons.person),
                 ),
               ),
               const SizedBox(

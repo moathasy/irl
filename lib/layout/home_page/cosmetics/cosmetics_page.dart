@@ -49,9 +49,10 @@ class _CosmeticsState extends State<Cosmetics> {
       appBar: AppBar(
         title: const Center(
           child: Text(
-            'cosmetics',
+            'Cosmetics',
             style: TextStyle(
               color: Colors.brown,
+              fontFamily: 'Lora',
               fontSize: 40,
               fontWeight: FontWeight.bold,
             ),

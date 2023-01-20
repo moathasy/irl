@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:irl/layout/irl_login/login_page.dart';
 import 'package:irl/layout/orders/cosmatics_order.dart';
 import 'package:provider/provider.dart';
 
@@ -15,6 +17,7 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
+  User? userData = FirebaseAuth.instance.currentUser;
   late String storeName;
   List<Cart> cart = [];
   double total = 0;
@@ -47,6 +50,7 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
+    
     fetchData();
     return Scaffold(
       appBar: AppBar(
@@ -113,17 +117,23 @@ class _CartScreenState extends State<CartScreen> {
                           Colors.brown,
                         )),
                         onPressed: () {
-                          Provider.of<CartProvider>(context, listen: false)
-                              .onSubmitOrder(storeName);
+                          if(userData == null ){
+                            Navigator.push(context, MaterialPageRoute(builder: (_)=> LoginScreen()));
+                          }else{
+                            Provider.of<CartProvider>(context, listen: false)
+                                .onSubmitOrder(storeName);
 
-                          Navigator.of(context).pushAndRemoveUntil(
-                              MaterialPageRoute(
-                                builder: (_) => const MyCosmeticsOrder(),
-                              ),
-                              (route) => false);
+                            Navigator.of(context).pushAndRemoveUntil(
+                                MaterialPageRoute(
+                                  builder: (_) => const MyCosmeticsOrder(),
+                                ),
+                                    (route) => false);
+                          }
+                         
+                          
                         },
-                        child: const Text(
-                          "Submit Order",
+                        child:  Text(
+                         userData==null ? "Login First": "Submit Order",
                         ),
                       ),
                     ),
